@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "20733465-c276-47e2-8826-addbd632bab9",
+		"name": "http-crud-tutorial-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "item",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/item",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Validate the status of the HTTP REST API Web Service Response\r",
+											"pm.test(\"Status code is 200 - Item is created\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// let's validate the respone times\r",
+											"pm.test(\"Response time is less than 300ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\": 20,\r\n    \"id\": \"Kamal324634\",\r\n    \"itemName\": \"weekend\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bywk1ggjxf.execute-api.ca-central-1.amazonaws.com/item",
+									"protocol": "https",
+									"host": [
+										"bywk1ggjxf",
+										"execute-api",
+										"ca-central-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"item"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default response for POST /item",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/item",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"item"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/items",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"newRelicApiKey\");\r",
+											"pm.test(\"Response time is less than 100ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+											"});\r",
+											"    var taran = pm.response.json();\r",
+											"    console.log(taran.analytics.qos.newRelicApiKey)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://staging-webapps.9c9media.com/config/vidi-player/v1/crave/test.json",
+									"protocol": "https",
+									"host": [
+										"staging-webapps",
+										"9c9media",
+										"com"
+									],
+									"path": [
+										"config",
+										"vidi-player",
+										"v1",
+										"crave",
+										"test.json"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default response for GET /items",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/items",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/item",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200 - Update item name\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"sunny6324634\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\": 3345345254,\r\n    \"id\": \"sunny6324634\",\r\n    \"itemName\": \"SENSE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/item",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"item"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default response for PUT /item",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/item",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"item"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/item/:id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"SENSE\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/item/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{itemID}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default response for GET /item/{id}",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/item/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"item",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/item/:id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Deleted\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/item/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{itemID}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default response for DELETE /item/{id}",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/item/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"item",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basePath",
+			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://bywk1ggjxf.execute-api.ca-central-1.amazonaws.com/{{basePath}}"
+		},
+		{
+			"key": "baseTest",
+			"value": "https://staging-webapps.9c9media.com/config/vidi-player/v1/crave/test.json"
+		}
+	]
+}
